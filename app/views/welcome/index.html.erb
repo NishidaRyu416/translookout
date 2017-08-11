@@ -1,7 +1,14 @@
-<!-- Compiled and minified CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
-
-<!-- Compiled and minified JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
-
-<h1>hello</h1>
+<div id="headerwrap">
+<div class="blue-text text-darken-2"><h2>Now Available For Free!</h2></div>
+<h1>Welcome to translookout</h1>
+<h3>What can it do?</h3>
+<h3>It can monitor your users.In particular,it can judge their messages or images whether adult or forbidden words or not.</h3>
+<%=image_tag "introduction.jpeg"%>
+<div class="row">
+  <div class="col s12"><h2 class="flow-text">Details</h2></div>
+  <div class="col s6 push-s6"><span class="flow-text">As above example,it'll make an adult image null and respond whether adult or not.</span></div>
+  <div class="col s6 pull-s6"><span class="flow-text">But also,it'll make forbidden words null or ***. </span></div>
+</div>
+  <div class="blue-text text-darken-2"><h2>Now Available For Free!</h2></div>
+</div>
+<%= link_to "Sign in with Facebook",user_facebook_omniauth_authorize_path %>

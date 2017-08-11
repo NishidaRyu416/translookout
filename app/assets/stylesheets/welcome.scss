@@ -1,3 +1,21 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#headerwrap {
+  margin-top: 0px;
+  padding-top: 120px;
+  text-align: center;
+  background-attachment: relative;
+  background-position: center center;
+  min-height: 700px;
+  width: 100%;
+  -webkit-background-size: 100%;
+  -moz-background-size: 100%;
+  -o-background-size: 100%;
+  background-size: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+

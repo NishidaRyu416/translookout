@@ -12,4 +12,9 @@
  *
  *= require_tree .
  *= require_self
+ *= vim
  */
+@import "materialize/components/color";
+$primary-color: color("deep-purple","lighten-3") !default;
+@import 'materialize';
+

@@ -1,0 +1,4 @@
+<%@documents.each do|document|%>
+    <h1><%= link_to document.title,document %></h1>
+    <p><%= markdown(document.body).html_safe %></p>
+<%end%>
