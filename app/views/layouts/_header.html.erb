@@ -7,24 +7,24 @@
       <li>Price</li>
       <%if current_user%>
       <li><%= link_to "Dashboard",user_path(current_user.id)%></li>
-       <%end%>
       <li>
         <%= link_to destroy_user_session_path, method: :delete  do%>
             <i class="material-icons right">warning</i>Logout
         <%end%>
       </li>
+      <%end%>
     </ul>
     <ul class="side-nav" id="mobile-demo">
       <li><%=link_to "Documents",documents_path%></li>
       <li>Price</li>
       <%if current_user%>
       <li><%= link_to "Dashboard",user_path(current_user.id)%></li>
-      <%end%>
       <li>
         <%= link_to destroy_user_session_path, method: :delete  do%>
             <i class="material-icons right">warning</i>Logout
         <%end%>
       </li>
+      <%end%>
     </ul>
   </div>
 </nav>
