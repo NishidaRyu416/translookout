@@ -33,7 +33,6 @@ gem 'redcarpet', '~> 2.3.0'
 gem "pygments.rb"
 gem "nokogiri"
 gem "devise"
-gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'payjp'
