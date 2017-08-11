@@ -1,4 +1,8 @@
+<div id="document">
 <%@documents.each do|document|%>
     <h1><%= link_to document.title,document %></h1>
-    <p><%= markdown(document.body).html_safe %></p>
+    <%= truncate(strip_tags(markdown(document.body)).html_safe,:length => 200)  do %>
+        <p>If you want to read more,<%= link_to 'Click',document%>here<p>
+    <% end %>
 <%end%>
+</div>

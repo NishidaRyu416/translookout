@@ -11,4 +11,11 @@
 </div>
   <div class="blue-text text-darken-2"><h2>Now Available For Free!</h2></div>
 </div>
-<%= link_to "Sign in with Facebook",user_facebook_omniauth_authorize_path %>
+<h2>Support me with bitcoin</h2>
+<h2 id="bitcoin_adress" class="blue-text text-darken-2">17wMZgon7PhoSmSGPE3FiGfn1v7k8BxyJt</h2>
+<%unless current_user%>
+<%= link_to user_facebook_omniauth_authorize_path,class:"btn-large btn-facebook" do%>
+    <i class="fa fa-facebook-official fa-2x left" aria-hidden="true"></i>
+    Sign in with Facebook
+<%end%>
+<%end%>

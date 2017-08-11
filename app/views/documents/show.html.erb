@@ -1,3 +1,5 @@
+<div id="document">
 <h1><%=@document.title%></h1>
 <p><%= markdown(@document.body).html_safe %></p>
 <%= link_to 'Edit', edit_document_path(@document) %>
+</div>

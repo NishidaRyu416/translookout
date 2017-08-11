@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   resources :documents
   root to:'welcome#index'
   resources :users
+  post "subscription" =>'subscription#create'
+  delete "subscription" =>"subscription#destroy"
+  post "webhock"=>"webhock#create"
+  get    'signup', to: 'users#new'
   resource :lookouts do
     collection do
       get :cover

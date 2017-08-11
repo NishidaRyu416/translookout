@@ -16,9 +16,10 @@
   <%= stylesheet_link_tag "application", :media => "all" %>
   <%= stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons" %>
   <%= yield(:page_stylesheet) if content_for?(:page_stylesheet) %>
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Saira+Extra+Condensed" rel="stylesheet">
 </head>
 <!--header-->
-<%= render"layouts/header"%>
+<%= render"layouts/header"%><br>
 <!--header-->
 <body>
 <div class="container">

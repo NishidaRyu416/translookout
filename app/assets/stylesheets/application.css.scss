@@ -18,3 +18,14 @@
 $primary-color: color("deep-purple","lighten-3") !default;
 @import 'materialize';
 
+html {
+  font-family: 'Indie Flower', cursive;
+}
+.btn-facebook{
+  @extend  .blue,.darken-4
+}
+#bitcoin_address{
+  font-family: 'Saira Extra Condensed', sans-serif;
+}
+
+

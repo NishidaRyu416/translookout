@@ -36,6 +36,8 @@ gem "devise"
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
+gem 'payjp'
+gem "font-awesome-rails"
 gem 'therubyracer', platforms: :ruby
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
