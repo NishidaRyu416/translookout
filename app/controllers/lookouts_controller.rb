@@ -54,7 +54,7 @@ class LookoutsController < ApplicationController
     response=response.body
     response= JSON.parse(response)
     response=response["adult"]
-    puts isadult=response["isAdultContent"]
+    isadult=response["isAdultContent"]
     adult_score=response["adultScore"]
     if isadult == true
       checked_image = nil
