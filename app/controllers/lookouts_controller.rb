@@ -3,15 +3,28 @@ class LookoutsController < ApplicationController
   require 'json'
 
   def cover
-    if params[:mode]=="image"
-      result=checking_image?(params[:image])
-      render json:result
-    elsif params[:mode]=="message"
-      params[:option]=true unless params[:option].present?
-      result=message_judgment?(params[:message],params[:targets],params[:option])
-      render json:result
-    else
-      render json: 'You need to specify available option.'
+    case
+      when params[:subscription_id].present?&&User.find_by(subscription_id:params[:subscription_id]).member?
+        if params[:mode]=="image"
+          result=checking_image?(params[:image])
+          user=User.find_by(subscription_id:params[:subscription_id])
+          called_count=user.api_called_count
+          user.update(api_called_count:called_count+1)
+          render json:result
+        elsif params[:mode]=="message"
+          params[:option]=true unless params[:option].present?
+          result=message_judgment?(params[:message],params[:targets],params[:option])
+          user=User.find_by(subscription_id:params[:subscription_id])
+          called_count=user.api_called_count
+          user.update(api_called_count:called_count+1)
+          render json:result
+        else
+          render json: 'You need to specify available option.'
+        end
+      when params[:subscription_id]. present?&&User.find_by(subscription_id:params[:subscription_id]).member? == false
+        render json:'Your subscription has already ended.'
+      when params[:subscription_id].present? == false
+        render json: 'You need to specify your subscription_id.'
     end
   end
 

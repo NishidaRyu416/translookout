@@ -57,8 +57,4 @@ class User < ApplicationRecord
   def member?
     expires_at && (expires_at > Time.now)
   end
-
-  def test
-    update(profile: '今日は',location: 'tokyo')
-  end
 end

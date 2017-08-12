@@ -1,9 +1,30 @@
-<%=@user.name%><br>
-subscription_id:<%=@user.subscription_id%>
+<div id="subscription">
+  <table>
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>subscription_id:</th>
+      <th>Your period</th>
+      <th>You called this api</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr>
+      <td><%=@user.name%></td>
+      <td><%=@user.subscription_id%></td>
+      <td><%=@user.expires_at%></td>
+      <th><%=@user.api_called_count%></th>
+    </tr>
+    </tbody>
+  </table><br>
+
+
 <% if current_user.member? %>
-    <%= link_to '有料会員を解約する', subscription_path, method: :delete,class:"btn btn-send" %>
+    <%= link_to 'Cancel your subscription', subscription_path, method: :delete,class:"btn btn-send" %>
 <%else%>
     <%=form_tag subscription_path do%>
-        <script src="https://checkout.pay.jp/" class="payjp-button" data-key="pk_test_107669fdb4df5e02ed0bd696"></script>
+       <script src="https://checkout.pay.jp/" data-lang=en class="payjp-button" data-key="pk_test_107669fdb4df5e02ed0bd696"></script>
     <%end%>
 <% end %>
+</div>
