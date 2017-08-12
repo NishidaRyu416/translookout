@@ -27,7 +27,7 @@ class LookoutsController < ApplicationController
         '*' * target.length
       end
     end
-    return message
+    return {:checked_message=>message}
   end
 
   def checking_image?(image)
@@ -61,6 +61,6 @@ class LookoutsController < ApplicationController
     else
       checked_image = image
     end
-    return checked_image,isadult,adult_score
+    return {:checked_image=>checked_image,:isadult=>isadult,:adult_score=>adult_score}
   end
 end
