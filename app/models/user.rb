@@ -34,10 +34,10 @@ class User < ApplicationRecord
     end
   end
 
-  def subscription(current_user)
+  def subscription(current_user,plan)
     Payjp.api_key = 'sk_test_3c5311aec4f5a022738b1f03'
     subscription=Payjp::Subscription.create(
-        plan: 'premium',
+        plan: plan,
         customer: "#{current_user.customer_id}"
     )
     update(subscription_id:subscription.id)
@@ -45,7 +45,7 @@ class User < ApplicationRecord
   end
 
   def update_subscription(subscription)
-    update(expires_at: Time.zone.at(subscription.current_period_end))
+    update(expires_at: Time.zone.at(subscription.current_period_end),plan: subscription.plan.id)
   end
 
   def delete_subscription

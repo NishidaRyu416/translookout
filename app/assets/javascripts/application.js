@@ -16,3 +16,6 @@
 //= require materialize-sprockets
 //= require_tree .
 $(".button-collapse").sideNav();
+$(document).ready(function() {
+    $('select').material_select();
+});

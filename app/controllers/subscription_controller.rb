@@ -5,7 +5,7 @@ class SubscriptionController < ApplicationController
       token=params['payjp-token']
       current_user.making_customer(current_user,token)
     end
-    current_user.subscription(current_user)
+    current_user.subscription(current_user,params[:plan])
     redirect_to user_path(current_user.id)
   end
   def destroy

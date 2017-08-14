@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   delete "subscription" =>"subscription#destroy"
   post "webhock"=>"webhock#create"
   get    'signup', to: 'users#new'
+  get "pricing",to:"welcome#pricing"
   resource :lookouts do
     collection do
       get :cover

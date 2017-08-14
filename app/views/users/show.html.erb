@@ -4,7 +4,9 @@
     <tr>
       <th>Name</th>
       <th>subscription_id:</th>
+      <th>Your plan</th>
       <th>Your period</th>
+      <td>You can call this api</td>
       <th>You called this api</th>
     </tr>
     </thead>
@@ -13,7 +15,20 @@
     <tr>
       <td><%=@user.name%></td>
       <td><%=@user.subscription_id%></td>
+      <td><%=@user.plan%></td>
       <td><%=@user.expires_at%></td>
+      <td>
+        <%case @user.plan%>
+          <%when "small"%>
+            500
+          <%when "medium"%>
+            1000
+          <% when "large"%>
+            1500
+          <%when"gold"%>
+            3000
+        <%end%>
+      </td>
       <th><%=@user.api_called_count%></th>
     </tr>
     </tbody>
@@ -24,6 +39,8 @@
     <%= link_to 'Cancel your subscription', subscription_path, method: :delete,class:"btn btn-send" %>
 <%else%>
     <%=form_tag subscription_path do%>
+       <p>You need to select a plan that you want.</p>
+       <%=select_tag :plan,options_for_select(["small","medium","large","gold"])%>
        <script src="https://checkout.pay.jp/" data-lang=en class="payjp-button" data-key="pk_test_107669fdb4df5e02ed0bd696"></script>
     <%end%>
 <% end %>
