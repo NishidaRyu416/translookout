@@ -38,6 +38,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'payjp'
 gem "font-awesome-rails"
+gem 'google-analytics-rails'
 gem 'therubyracer', platforms: :ruby
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
