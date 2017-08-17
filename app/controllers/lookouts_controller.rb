@@ -4,7 +4,7 @@ class LookoutsController < ApplicationController
 
   def cover
     case
-      when params[:subscription_id].present?&&User.find_by(subscription_id:params[:subscription_id]).member?
+      when params[:subscription_id].present?&&User.find_by(subscription_id:params[:subscription_id]).member?||params[:subscription_id]=="free"
         if params[:mode]=="image"
           result=checking_image?(params[:image])
           user=User.find_by(subscription_id:params[:subscription_id])
