@@ -35,7 +35,7 @@
   </table><br>
 
 
-<% if current_user.member? %>
+<% if current_user.member?||@user.expires_at.present?%>
     <%= link_to 'Cancel your subscription', subscription_path, method: :delete,class:"btn btn-send" %>
 <%else%>
     <%=form_tag subscription_path do%>
