@@ -8,6 +8,6 @@ class UsersController < ApplicationController
   private
 
   def logged_in?
-    redirect_to root_path unless current_user
+    redirect_to root_path unless current_user == User.find(params[:id])
   end
 end
