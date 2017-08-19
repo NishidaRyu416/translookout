@@ -9,7 +9,7 @@ class LookoutsController < ApplicationController
           result=checking_image?(params[:image])
           render json:result
         elsif params[:mode]=="message"
-          params[:option]=true unless params[:option].present?
+          params[:option]="true" unless params[:option].present?
           result=message_judgment?(params[:message],params[:targets],params[:option])
           render json:result
         else
@@ -23,7 +23,7 @@ class LookoutsController < ApplicationController
                 user.update(api_called_count:called_count+1)
                 render json:result
               elsif params[:mode]=="message"
-                params[:option]=true unless params[:option].present?
+                params[:option]="true" unless params[:option].present?
                 result=message_judgment?(params[:message],params[:targets],params[:option])
                 user=User.find_by(subscription_id:params[:subscription_id])
                 called_count=user.api_called_count
@@ -41,12 +41,12 @@ class LookoutsController < ApplicationController
 
   private
 
-  def message_judgment?(message,targets,option=true)
-    if option==true
+  def message_judgment?(message,targets,option)
+    if option=="true"
       message.gsub!(/(#{targets.join('|')})/) do |target|
         '*' * target.length
       end
-    elsif option==false
+    elsif option=="false"
       targets.each do|target|
         message.slice!(target) if message.include?(target)
       end
