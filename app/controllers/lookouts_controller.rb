@@ -42,13 +42,13 @@ class LookoutsController < ApplicationController
   private
 
   def message_judgment?(message,targets,option=true)
-    unless option==true
-      targets.each do|target|
-        message.slice!(target) if message.include?(target)
-      end
-    else
+    if option==true
       message.gsub!(/(#{targets.join('|')})/) do |target|
         '*' * target.length
+      end
+    elsif option==false
+      targets.each do|target|
+        message.slice!(target) if message.include?(target)
       end
     end
     return {:checked_message=>message}
