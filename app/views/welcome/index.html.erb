@@ -4,6 +4,7 @@
 <h3>What can it do?</h3>
 <h3>It can monitor the users message history. In particular, it can detect messages that has an adult content or forbidden words.</h3>
 <%=image_tag "introduction.jpeg",width:"100%",height:"100%"%>
+
 <div class="row">
   <div class="col s12"><h2 class="flow-text">Details</h2></div>
   <div class="col s6 push-s6"><span class="flow-text">As an example above, the message that has an adult content image, the image did not appear for it detected an adult content within the message.</span></div>
@@ -11,12 +12,55 @@
 </div>
   <div class="blue-text text-darken-2"><h2>Now Available For Free!</h2></div>
 </div>
+<hr>
 <h2>Support me with bitcoin</h2>
-<p id="bitcoin_address" class="blue-text text-darken-2">17wMZgon7PhoSmSGPE3FiGfn1v7k8BxyJt</p>
+<h2 id="bitcoin_address" class="blue-text text-darken-2">17wMZgon7PhoSmSGPE3FiGfn1v7k8BxyJt</h2>
+<hr>
 <%unless current_user%>
-<%= link_to user_facebook_omniauth_authorize_path,class:"btn-large btn-facebook" do%>
-    <i class="fa fa-facebook-official fa-2x left" aria-hidden="true"></i>
-    Sign in with Facebook
+      <h2>Let us sign in or sign up!</h2>
+      <h3 class="text-center gold">Let's Sign In</h3>
+          <div class="header text-center">
+            <h4 class="title title-up">Sign In</h4>
+          </div>
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|  %>
+
+                <%= f.label :email %><br />
+                <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form-control bg-default"%>
+
+                <%= f.label :password %>
+                <%= f.password_field :password, autocomplete: "off" ,class:"form-control bg-default" %>
+
+                <div class="footer text-center">
+                  <%= f.submit "Sign In",class:"btn btn-neutral btn-round btn-lg" %>
+                </div>
+            <% end %>
+
+
+        <h3 class="text-center gold">Let's get started</h3>
+            <div class="header text-center">
+              <h4 class="title title-up">Sign Up</h4>
+            </div>
+              <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                  <%= devise_error_messages! %>
+                  <%= f.label :name,"username" %><br />
+                  <%= f.text_field :name,autocomplete: "name" ,class:"form-control bg-default"%>
+
+                  <%= f.label :email %><br />
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form-control bg-default"%>
+
+                  <%= f.label :password %>
+                  <% if @minimum_password_length %>
+                      <em>(<%= @minimum_password_length %> characters minimum)</em>
+                  <% end %><br />
+                  <%= f.password_field :password, autocomplete: "off" ,class:"form-control bg-default" %>
+
+                  <%= f.label :password_confirmation %><br />
+                  <%= f.password_field :password_confirmation, autocomplete: "off",class:"form-control bg-default"  %>
+
+                  <div class="text-center">
+                    <%= f.submit "Sign up",class:"btn btn-neutral btn-round btn-lg" %>
+                  </div>
+              <% end %>
 <%end%>
-<%end%>
+
 

@@ -15,6 +15,11 @@ class User < ApplicationRecord
     user
   end
 
+  def self.create_unique_string
+    return SecureRandom.uuid
+  end
+
+
   def making_customer(current_user,token)
     Payjp.api_key = 'sk_test_3c5311aec4f5a022738b1f03'
     customer=Payjp::Customer.create(
